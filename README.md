@@ -1,0 +1,2 @@
+# pollen-levels_gsheets_sync
+ウェザーニューズの花粉飛散量をスプレッドシートにのせる
