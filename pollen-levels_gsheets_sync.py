@@ -5,6 +5,13 @@ from datetime import date
 import json
 import csv
 
+def main():
+    for target in targets_list:
+        citycode = target[1]
+        today = date.today().strftime("%Y%m%d")
+        ret = get_pollen_level_for_district(district=citycode,date=today)
+        print(f"{target[0]},{citycode=},{ret=}")
+
 def get_pollen_level_for_district(district,date):
     # APIについて https://wxtech.weathernews.com/pollen/index.html
     url = f"https://wxtech.weathernews.com/opendata/v1/pollen?citycode={district}&start={date}&end={date}"
@@ -28,9 +35,5 @@ with open(conf["targets"], "r") as f:
     targets_header = next(csv.reader(f))
     targets_list = [i for i in csv.reader(f)]
 
-for target in targets_list:
-    citycode = target[1]
-    today = date.today().strftime("%Y%m%d")
-    ret = get_pollen_level_for_district(district=citycode,date=today)
-    print(f"{target[0]},{citycode=},{ret=}")
-
+if __name__ == '__main__':
+    main()
