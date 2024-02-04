@@ -1,3 +1,5 @@
 {
-    "targets": "targets.csv"
+    "targets": "targets.csv",
+    "gcp_key": "google_spreadsheets_credentials.json",
+    "gspread_sheets_key": "hoge"
 }
