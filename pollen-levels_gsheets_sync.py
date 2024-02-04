@@ -6,6 +6,7 @@ import json
 import csv
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
+from datetime import datetime
 
 def main():
 
@@ -19,7 +20,7 @@ def main():
         print(f"{target[0]},{citycode=},{ret=}")
 
     # spread sheetを更新する範囲を作成 ex) "A1:B5"
-    data_header = [["地区","花粉飛散量"]]
+    data_header = [[datetime.now().strftime("%Y年%m月%d日%H時%M分更新"),""],["地区","花粉飛散量"]]
     data_range = "A1:"+chr(ord('A')+len(data_header[0])-1)+str(len(data_header + district_pollen_list))
     print(f"{data_range=}")
 
